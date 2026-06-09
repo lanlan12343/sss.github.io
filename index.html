@@ -57,6 +57,7 @@ var TLDataContext = {
     ya('init', '88154d68f0664124b31972feafcf3c56', 'f1f7526a-54bc-402a-b966-a9d016453602');
     ya('hit', 'pageview,webPerformance');
 </script>
+            
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const min = 10;
@@ -68,6 +69,24 @@ document.addEventListener('DOMContentLoaded', () => {
   els.forEach(el => {
     const num = Math.floor(Math.random() * (max - min + 1)) + min; // 50~500
     el.textContent = 'A-' + num;
+              import xml.etree.ElementTree as ET
+
+xml_data = """<?xml version="1.0" encoding="UTF-8"?> 
+<Result> 
+    <Status>OK</Status> 
+    <Code></Code> 
+</Result>"""
+
+# 解析 XML 字符串
+root = ET.fromstring(xml_data)
+
+# 提取 Status 和 Code 的值
+status = root.find('Status').text
+code = root.find('Code').text if root.find('Code').text else ""
+
+print(f"状态: {status}")
+print(f"代码: {code}")
+
   });
 });
 </script>
